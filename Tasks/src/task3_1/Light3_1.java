@@ -49,7 +49,7 @@ public class Light3_1 implements Transport3_1 {
     @Override
     public int getParam() {
         int a;
-        a = this.param;
+        a = param;
         return a;
     }
 }
