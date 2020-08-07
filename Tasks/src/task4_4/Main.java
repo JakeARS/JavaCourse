@@ -12,6 +12,7 @@ public class Main {
         startMap.put("Ippolit", 21);
         startMap.put("Dazdraperma", 21);
         startMap.put("Serezha Zverev", 57);
+        startMap.put("Roza Syabitova", 800);
 
         for (String keys : startMap.keySet()
         ) {
@@ -29,16 +30,20 @@ public class Main {
 
     public static <K, V> Map<V, Collection<K>> reverseMap(Map<K, V> map) {
         Map<V, Collection<K>> newMap = new HashMap<>();
-        System.out.println("adasda");
-        for (V i : new HashSet<>(map.values())
+
+        //убрал этот цикл, все теперь в одном
+        /*for (V i : new HashSet<>(map.values())
         ) {
-            /*Collection<K> keyCollection = */
             newMap.put(i, new ArrayList<>());
-        }
+        }*/
 
         //Collection<K> list= newMap.get(20);
         for (K j : map.keySet()
         ) {
+            if (!newMap.containsKey(map.get(j))) {
+                newMap.put(map.get(j), new ArrayList<>());
+            }
+
             Collection<K> list= new ArrayList(newMap.get(map.get(j)));
             list.add(j);
             newMap.put(map.get(j), list);
